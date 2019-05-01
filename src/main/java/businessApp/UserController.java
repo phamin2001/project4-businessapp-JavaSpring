@@ -1,10 +1,9 @@
 package businessApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -12,15 +11,56 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BusinessRepository businessRepository;
+
     @GetMapping("/users")
     public Iterable<User> getusers() {
         return userRepository.findAll();
     }
 
-    @PostMapping("/posts")
-    public User createPost(@RequestBody User user) {
+    @GetMapping("/users/{userId}")
+    public User showUser(@PathVariable Long userId) throws Exception {
+        Optional<User> foundUser = userRepository.findById(userId);
+        if(foundUser.isPresent()) {
+            User result = foundUser.get();
+            return result;
+        } else {
+            throw new Exception("No User By This Id!!!");
+        }
+    }
+
+    // TODO: saveUser(user)
+    @PostMapping("/users")
+    public User createUser(@RequestBody User user) {
         User createdUser = userRepository.save(user);
         return createdUser;
+    }
+
+    // TODO: hash password
+    @PutMapping("users/{userId}")
+    public User updateUser(@RequestBody User user, @PathVariable Long userId) throws Exception {
+        Optional<User> founUser = userRepository.findById(userId);
+        if(founUser.isPresent()) {
+            User updatedUser = founUser.get();
+            updatedUser.setUsername(user.getUsername());
+            updatedUser.setPassword(user.getPassword());
+            return userRepository.save(updatedUser);
+        } else {
+            throw new Exception("No User By This Id!!!");
+        }
+    }
+
+    @DeleteMapping("users/{userId}")
+    public String deleteUser(@PathVariable Long userId) throws Exception {
+        Iterable<Business> foundAllUserBusinesses = businessRepository.findAll();
+        for (Business business : foundAllUserBusinesses) {
+            if (business.getUser().getId() == userId) {
+                businessRepository.deleteById(business.getId());
+            }
+        }
+        userRepository.deleteById(userId);
+        return "Successfully Delete User By id of: " + userId;
     }
 
 }

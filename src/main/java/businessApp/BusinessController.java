@@ -10,9 +10,14 @@ public class BusinessController {
     @Autowired
     private BusinessRepository businessRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/businesses")
-    public String getBusinesses() {
-        return "hddd";
+    public Iterable<Business> getBusinesses() {
+        return businessRepository.findAll();
     }
+
+
 
 }
