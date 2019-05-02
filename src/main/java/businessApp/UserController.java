@@ -26,7 +26,7 @@ public class UserController {
             User result = foundUser.get();
             return result;
         } else {
-            throw new Exception("No User By This Id!!!");
+            throw new Exception("No User Found By This Id!!!");
         }
     }
 
@@ -40,14 +40,14 @@ public class UserController {
     // TODO: hash password
     @PutMapping("users/{userId}")
     public User updateUser(@RequestBody User user, @PathVariable Long userId) throws Exception {
-        Optional<User> founUser = userRepository.findById(userId);
-        if(founUser.isPresent()) {
-            User updatedUser = founUser.get();
+        Optional<User> foundUser = userRepository.findById(userId);
+        if(foundUser.isPresent()) {
+            User updatedUser = foundUser.get();
             updatedUser.setUsername(user.getUsername());
             updatedUser.setPassword(user.getPassword());
             return userRepository.save(updatedUser);
         } else {
-            throw new Exception("No User By This Id!!!");
+            throw new Exception("No User Found By This Id!!!");
         }
     }
 
@@ -59,8 +59,15 @@ public class UserController {
                 businessRepository.deleteById(business.getId());
             }
         }
-        userRepository.deleteById(userId);
-        return "Successfully Delete User By id of: " + userId;
+
+        Optional<User> foundUser = userRepository.findById(userId);
+        if (foundUser.isPresent()) {
+            userRepository.deleteById(userId);
+            return "Successfully Delete User By Id Of: " + userId;
+        } else {
+            throw new Exception("No User Found By This Id");
+        }
+
     }
 
 }

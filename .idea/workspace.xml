@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db5504b9-cb99-44d1-9f8c-2b42e842c36a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/Business.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/BusinessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/BusinessRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -48,8 +45,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+                <state relative-caret-position="355">
+                  <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -79,8 +76,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="62" column="62" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+                <state relative-caret-position="285">
+                  <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
                 </state>
               </provider>
             </entry>
@@ -111,8 +108,8 @@
         <option value="$PROJECT_DIR$/src/main/java/businessApp/BusinessRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/Business.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" />
       </list>
     </option>
   </component>
@@ -269,9 +266,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="879" y="23" width="1041" height="1177" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2922923" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2922923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -380,17 +376,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        <state relative-caret-position="285">
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="62" column="62" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+        <state relative-caret-position="355">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
         </state>
       </provider>
     </entry>
