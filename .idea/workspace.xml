@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db5504b9-cb99-44d1-9f8c-2b42e842c36a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/businessApp/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/WebMvcConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,8 +54,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+                <state relative-caret-position="179">
+                  <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -115,8 +112,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="129">
-                  <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-end-line="50" />
+                <state relative-caret-position="154">
+                  <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
                 </state>
               </provider>
             </entry>
@@ -124,8 +121,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+                <state relative-caret-position="340">
+                  <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -159,9 +156,9 @@
         <option value="$PROJECT_DIR$/src/main/java/businessApp/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/WebMvcConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" />
       </list>
     </option>
   </component>
@@ -452,13 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/SecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -475,22 +465,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="340">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/SecurityConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        <state relative-caret-position="132">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-end-line="50" />
+        <state relative-caret-position="154">
+          <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
         </state>
       </provider>
     </entry>

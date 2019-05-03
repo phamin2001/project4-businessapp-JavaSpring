@@ -3,6 +3,7 @@ package businessApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @RestController
@@ -17,12 +18,12 @@ public class BusinessController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/businesses")
-    public Iterable<Business> getBusinesses() {
+    @GetMapping("/users/{userId}/businesses")
+    public Iterable<Business> getBusinesses(HttpSession session) {
         return businessRepository.findAll();
     }
 
-    @GetMapping("businesses/{businessId}")
+    @GetMapping("/businesses/{businessId}")
     public Business showOne(@PathVariable Long businessId) {
         Business findOne = businessRepository.findById(businessId).get();
         return findOne;
