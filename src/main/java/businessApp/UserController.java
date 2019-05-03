@@ -1,8 +1,11 @@
 package businessApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Optional;
 
 @RestController
@@ -14,13 +17,38 @@ public class UserController {
     @Autowired
     private BusinessRepository businessRepository;
 
-    @GetMapping("/users")
-    public Iterable<User> getusers() {
-        return userRepository.findAll();
+    @Autowired
+    private UserService userService;
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @PostMapping("/login")
+    public String[] login(@RequestBody User login, HttpSession session) throws IOException {
+        bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        User user = userRepository.findByUsername(login.getUsername());
+        if (user == null) {
+            throw new IOException("Invalid Credentials");
+        }
+        boolean valid = bCryptPasswordEncoder.matches(login.getPassword(), user.getPassword());
+        if (valid) {
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("userId", user.getId());
+            session.setAttribute("logged", true);
+            return new String[] {user.getUsername(), String.valueOf(user.getId())};
+        } else {
+            throw new IOException("Invalid Credentials");
+        }
     }
 
+//    @GetMapping("/users")
+//    public Iterable<User> getusers() {
+//        return userRepository.findAll();
+//    }
+
     @GetMapping("/users/{userId}")
-    public User showUser(@PathVariable Long userId) throws Exception {
+    public User showUser(@PathVariable Long userId, HttpSession session) throws Exception {
+//        System.out.println(session.getAttribute("username") + " : session");
+
         Optional<User> foundUser = userRepository.findById(userId);
         if(foundUser.isPresent()) {
             User result = foundUser.get();
@@ -30,10 +58,10 @@ public class UserController {
         }
     }
 
-    // TODO: saveUser(user)
     @PostMapping("/users")
-    public User createUser(@RequestBody User user) {
-        User createdUser = userRepository.save(user);
+    public User createUser(@RequestBody User user, HttpSession session) {
+        User createdUser = userService.saveUser(user);
+        session.setAttribute("username", user.getUsername());
         return createdUser;
     }
 

@@ -14,6 +14,9 @@ public class BusinessController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/businesses")
     public Iterable<Business> getBusinesses() {
         return businessRepository.findAll();
