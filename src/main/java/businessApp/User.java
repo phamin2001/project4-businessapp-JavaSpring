@@ -17,7 +17,7 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonIgnore
-    private Set<Business> posts;
+    private Set<Business> businesses;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Business> getPosts() {
-        return posts;
+    public Set<Business> getBusinesses() {
+        return businesses;
     }
 
-    public void setPosts(Set<Business> posts) {
-        this.posts = posts;
+    public void setBusinesses(Set<Business> businesses) {
+        this.businesses = businesses;
     }
 }
