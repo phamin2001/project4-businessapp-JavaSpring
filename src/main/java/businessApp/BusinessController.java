@@ -20,7 +20,7 @@ public class BusinessController {
     private UserService userService;
 
 
-  
+
     @GetMapping("/users/{userId}/businesses")
     public Object getBusinesses(@PathVariable Long userId, HttpSession session) throws Exception{
 
@@ -39,9 +39,8 @@ public class BusinessController {
         }
     }
 
-    // TODO: do not return password
     @PostMapping("/users/{userId}/businesses")
-    public Business createBusiness(@RequestBody Business business, @PathVariable Long userId, HttpSession session) throws Exception {
+    public Object[] createBusiness(@RequestBody Business business, @PathVariable Long userId, HttpSession session) throws Exception {
 
         if (session.getAttribute("userId") == userId) {
             String currentUserUsername = session.getAttribute("username").toString();
@@ -49,25 +48,24 @@ public class BusinessController {
 
             business.setUser(currentUser);
             Business createdBusiness = businessRepository.save(business);
-            return createdBusiness;
+            return new Object[] {createdBusiness.getId(), createdBusiness.getName(), createdBusiness.getLocation()};
         } else {
             throw new Exception("You didn't logged in!!");
         }
     }
 
     @GetMapping("/users/{uerId}/businesses/{businessId}")
-    public Business showOne(@PathVariable Long userId, @PathVariable Long businessId, HttpSession session) throws Exception {
+    public Object[] showOne(@PathVariable Long userId, @PathVariable Long businessId, HttpSession session) throws Exception {
         if (session.getAttribute("userId") == userId) {
             Business findOne = businessRepository.findById(businessId).get();
-            return findOne;
+            return new Object[] {findOne.getId(), findOne.getName(), findOne.getLocation()};
         } else {
             throw new Exception("You didn't logged in!!");
         }
     }
 
-    // TODO: do not return user password
     @PutMapping("/users/{userId}/businesses/{businessId}")
-    public Business updateBusiness(@RequestBody Business business, @PathVariable Long businessId, @PathVariable Long userId, HttpSession session) throws Exception {
+    public Object[] updateBusiness(@RequestBody Business business, @PathVariable Long businessId, @PathVariable Long userId, HttpSession session) throws Exception {
 
         if (session.getAttribute("userId") == userId) {
 
@@ -76,7 +74,8 @@ public class BusinessController {
                 Business updatedBusiness = foundBusiness.get();
                 updatedBusiness.setName(business.getName());
                 updatedBusiness.setLocation(business.getLocation());
-                return businessRepository.save(updatedBusiness);
+                businessRepository.save(updatedBusiness);
+                return new Object[] {updatedBusiness.getId(), updatedBusiness.getName(), updatedBusiness.getLocation()};
             } else {
                 throw new Exception("No Business By This Id!!!");
             }
@@ -85,15 +84,19 @@ public class BusinessController {
         }
     }
 
-    // TODO: test
-    @DeleteMapping("/businesses/{businessId}")
-    public String deleteUser(@PathVariable Long businessId) throws Exception {
-        Optional<Business> foundBusiness = businessRepository.findById(businessId);
-        if (foundBusiness.isPresent()) {
-            businessRepository.deleteById(businessId);
-            return "Successfully Deleted Business By Id Of: " + businessId;
+    @DeleteMapping("/users/{userId}/businesses/{businessId}")
+    public String deleteUser(@PathVariable Long businessId, @PathVariable Long userId, HttpSession session) throws Exception {
+        if (session.getAttribute("userId") == userId) {
+
+            Optional<Business> foundBusiness = businessRepository.findById(businessId);
+            if (foundBusiness.isPresent()) {
+                businessRepository.deleteById(businessId);
+                return "Successfully Deleted Business By Id Of: " + businessId;
+            } else {
+                throw new Exception("No Business By This Id.");
+            }
         } else {
-            throw new Exception("No Business By This Id.");
+            throw new Exception("You didn't log in!!!");
         }
     }
 }

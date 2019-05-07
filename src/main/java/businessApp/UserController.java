@@ -47,8 +47,7 @@ public class UserController {
         if(foundUser.isPresent()) {
             User result = foundUser.get();
             if(result.getId() == session.getAttribute("userId")) {
-                return new Object[] {session.getAttribute("username"),
-                                     session.getAttribute("userId")};
+                return new Object[] {result.getId(), result.getUsername()};
             } else {
                 throw new Exception("You didn't login!!");
             }
