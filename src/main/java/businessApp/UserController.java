@@ -5,9 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -78,7 +76,7 @@ public class UserController {
                              session.getAttribute("logged")};
     }
 
-    @PutMapping("users/{userId}")
+    @PutMapping("/users/{userId}")
     public Object[] updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
         Optional<User> foundUser = userRepository.findById(userId);
         if(foundUser.isPresent()) {
@@ -96,7 +94,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("users/{userId}")
+    @DeleteMapping("/users/{userId}")
     public String deleteUser(@PathVariable Long userId, HttpSession session) throws Exception {
 
         Optional<User> foundUser = userRepository.findById(userId);
@@ -122,20 +120,21 @@ public class UserController {
 
 
 
-    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
-    public String logoutDo(HttpServletRequest request, HttpServletResponse response){
+    @PostMapping("/login/logout")
+    public String logoutDo( HttpServletRequest request){
+        System.out.println("here");
+
         HttpSession session= request.getSession(false);
         SecurityContextHolder.clearContext();
         session= request.getSession(false);
         if(session != null) {
             session.invalidate();
         }
-        for(Cookie cookie : request.getCookies()) {
-            cookie.setMaxAge(0);
-        }
 
         return "logout";
     }
+
+
 
 
 
