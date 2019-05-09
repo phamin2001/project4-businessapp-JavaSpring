@@ -1,10 +1,16 @@
 package businessApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -22,7 +28,7 @@ public class UserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/users/login")
-    public Object[] login(@RequestBody User login, HttpSession session) throws IOException {
+    public HashMap<String, Object> login(@RequestBody User login, HttpSession session) throws IOException {
         bCryptPasswordEncoder = new BCryptPasswordEncoder();
         User user = userRepository.findByUsername(login.getUsername());
         if (user == null) {
@@ -33,9 +39,14 @@ public class UserController {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userId", user.getId());
             session.setAttribute("logged", true);
-            return new Object[] {session.getAttribute("username"),
-                                 session.getAttribute("userId"),
-                                 session.getAttribute("logged")};
+
+            HashMap<String, Object> userInfo = new HashMap<>();
+            userInfo.put("username", session.getAttribute("username"));
+            userInfo.put("userId",   session.getAttribute("userId"));
+            userInfo.put("logged",   session.getAttribute("logged"));
+
+            return userInfo;
+
         } else {
             throw new IOException("Invalid Credentials");
         }
@@ -108,4 +119,27 @@ public class UserController {
             throw new Exception("No User Found By This Id");
         }
     }
+
+
+
+    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
+    public String logoutDo(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session= request.getSession(false);
+        SecurityContextHolder.clearContext();
+        session= request.getSession(false);
+        if(session != null) {
+            session.invalidate();
+        }
+        for(Cookie cookie : request.getCookies()) {
+            cookie.setMaxAge(0);
+        }
+
+        return "logout";
+    }
+
+
+
+
+
+
 }
