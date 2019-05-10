@@ -72,8 +72,8 @@ public class BusinessController {
     }
 
     @PutMapping("/users/{userId}/businesses/{businessId}")
-    public Object[] updateBusiness(@RequestBody Business business, @PathVariable Long businessId, @PathVariable Long userId, HttpSession session) throws Exception {
-
+    public HashMap<String, String> updateBusiness(@RequestBody Business business, @PathVariable Long businessId, @PathVariable Long userId, HttpSession session) throws Exception {
+        HashMap<String, String> returnUpdatedBusiness = new HashMap<>();
         if (session.getAttribute("userId") == userId) {
 
             Optional<Business> foundBusiness = businessRepository.findById(businessId);
@@ -82,7 +82,12 @@ public class BusinessController {
                 updatedBusiness.setName(business.getName());
                 updatedBusiness.setLocation(business.getLocation());
                 businessRepository.save(updatedBusiness);
-                return new Object[] {updatedBusiness.getId(), updatedBusiness.getName(), updatedBusiness.getLocation()};
+
+                returnUpdatedBusiness.put("id", String.valueOf(updatedBusiness.getId()));
+                returnUpdatedBusiness.put("name", updatedBusiness.getName());
+                returnUpdatedBusiness.put("location", updatedBusiness.getLocation());
+
+                return returnUpdatedBusiness;
             } else {
                 throw new Exception("No Business By This Id!!!");
             }
