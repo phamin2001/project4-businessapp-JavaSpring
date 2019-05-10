@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class BusinessController {
@@ -22,15 +21,23 @@ public class BusinessController {
 
 
     @GetMapping("/users/{userId}/businesses")
-    public Object getBusinesses(@PathVariable Long userId, HttpSession session) throws Exception{
+    public List<Map<String, String>> getBusinesses(@PathVariable Long userId, HttpSession session) throws Exception{
 
-        ArrayList<Object> businessesList = new ArrayList<>();
+        List<Map<String, String>> businessesList = new ArrayList<Map<String, String>>();
 
         if(session.getAttribute("userId") == userId) {
             Iterable<Business> foundAllUserBusinesses = businessRepository.findAll();
+            int i = 0;
             for (Business business : foundAllUserBusinesses) {
+                HashMap<String, String> businessMap = new HashMap<>();
+
                 if (business.getUser().getId() == userId) {
-                    businessesList.add(new String[]{business.getName(), business.getLocation(), String.valueOf(business.getId())});
+                    businessMap.put("name", business.getName());
+                    businessMap.put("location", business.getLocation());
+                    businessMap.put("id", String.valueOf(business.getId()));
+
+                    businessesList.add(i, businessMap);
+                    i++;
                 }
             }
             return businessesList;

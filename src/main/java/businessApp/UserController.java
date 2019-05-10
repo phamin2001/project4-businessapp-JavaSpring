@@ -120,18 +120,18 @@ public class UserController {
 
 
 
-    @PostMapping("/login/logout")
-    public String logoutDo( HttpServletRequest request){
-        System.out.println("here");
-
+    @PostMapping("/auth/logout")
+    public HashMap<String, String> logoutDo( HttpServletRequest request){
         HttpSession session= request.getSession(false);
         SecurityContextHolder.clearContext();
         session= request.getSession(false);
         if(session != null) {
             session.invalidate();
         }
-
-        return "logout";
+        HashMap<String, String> result = new HashMap<>();
+        result.put("status", "200");
+        result.put("data", "logout successful");
+        return result;
     }
 
 

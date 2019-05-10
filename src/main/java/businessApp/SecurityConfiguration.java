@@ -20,8 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers("/**").permitAll()
-                .antMatchers("/login").permitAll().anyRequest()
+                .antMatchers("/**").permitAll().anyRequest()
                 .authenticated().and().csrf().disable();
 //                .logout()
 //                .logoutUrl("/logout");
