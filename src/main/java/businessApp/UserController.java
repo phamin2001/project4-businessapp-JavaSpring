@@ -65,15 +65,22 @@ public class UserController {
         }
     }
 
-    @PostMapping("/users")
-    public Object[] createUser(@RequestBody User user, HttpSession session) {
+    @PostMapping("/users/register")
+    public HashMap<String, Object> createUser(@RequestBody User user, HttpSession session) {
+        HashMap<String, Object> newUser = new HashMap<>();
+
         User createdUser = userService.saveUser(user);
         session.setAttribute("username", createdUser.getUsername());
         session.setAttribute("userId", createdUser.getId());
         session.setAttribute("logged", true);
-        return new Object[] {session.getAttribute("username"),
-                             session.getAttribute("userId"),
-                             session.getAttribute("logged")};
+
+        newUser.put("username", session.getAttribute("username"));
+        newUser.put("userId",   session.getAttribute("userId"));
+        newUser.put("logged", session.getAttribute("logged"));
+
+        System.out.println(newUser);
+
+        return newUser;
     }
 
     @PutMapping("/users/{userId}")
