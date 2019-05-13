@@ -89,17 +89,30 @@ public class UserController {
     }
 
     @PutMapping("/users/{userId}")
-    public Object[] updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
+    public HashMap<String, String> updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
         Optional<User> foundUser = userRepository.findById(userId);
+
+        User result = userRepository.findByUsername(user.getUsername());// need to connect to mysql
+//        System.out.println(result.toString());
+
+
         if(foundUser.isPresent()) {
             User updatedUser = foundUser.get();
-            if(updatedUser.getId() == session.getAttribute("userId")) {
+
+            if( (updatedUser.getId() == session.getAttribute("userId")) &&
+                    ( (updatedUser.getUsername() == user.getUsername()) ||
+                            (result.getUsername() == null) ) // fix this
+               ) {
                updatedUser = userService.saveUser(user);
                session.setAttribute("username", updatedUser.getUsername());
-               return new Object[] {session.getAttribute("username"),
-                                    session.getAttribute("userId")};
+
+               HashMap<String, String> returnUpdatedUser = new HashMap<>();
+               returnUpdatedUser.put("username", updatedUser.getUsername());
+               returnUpdatedUser.put("userId", String.valueOf(updatedUser.getId()));
+
+               return returnUpdatedUser;
             } else {
-                throw new Exception("You didn't logged in!!!!");
+                throw new Exception("You didn't logged in!!!! OR this username is already taken.");
             }
         } else {
             throw new Exception("No User Found By This Id!!!");
