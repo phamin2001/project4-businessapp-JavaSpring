@@ -21,8 +21,11 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public User saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode((user.getPassword())));
+    public User saveUser(User user, boolean pass) {
+        if (pass) {
+            user.setPassword(bCryptPasswordEncoder.encode((user.getPassword())));
+        }
+
         userRepository.save(user);
         return user;
     }

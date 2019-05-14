@@ -71,7 +71,7 @@ public class UserController {
 
         // check if user exist
         if (userRepository.findByUsername(user.getUsername()) == null) {
-            User createdUser = userService.saveUser(user);
+            User createdUser = userService.saveUser(user, true);
             session.setAttribute("username", createdUser.getUsername());
             session.setAttribute("userId", createdUser.getId());
             session.setAttribute("logged", true);
@@ -91,24 +91,31 @@ public class UserController {
     @PutMapping("/users/{userId}")
     public HashMap<String, String> updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
         Optional<User> foundUser = userRepository.findById(userId);
-
-        User result = userRepository.findByUsername(user.getUsername());// need to connect to mysql
-//        System.out.println(result.toString());
-
+        boolean flag = false;
 
         if(foundUser.isPresent()) {
             User updatedUser = foundUser.get();
 
-            if( (updatedUser.getId() == session.getAttribute("userId")) &&
-                    ( (updatedUser.getUsername() == user.getUsername()) ||
-                            (result.getUsername() == null) ) // fix this
-               ) {
-               updatedUser = userService.saveUser(user);
-               session.setAttribute("username", updatedUser.getUsername());
+            if(updatedUser.getId() == session.getAttribute("userId")) {
 
-               HashMap<String, String> returnUpdatedUser = new HashMap<>();
-               returnUpdatedUser.put("username", updatedUser.getUsername());
-               returnUpdatedUser.put("userId", String.valueOf(updatedUser.getId()));
+                if (!user.getUsername().isEmpty()) {
+                    updatedUser.setUsername(user.getUsername());
+                }
+
+                if (!user.getPassword().isEmpty()) {
+                    updatedUser.setPassword(user.getPassword());
+                    flag = !flag;
+                }
+
+//                updatedUser.setUsername(user.getUsername());
+//                updatedUser.setPassword(user.getPassword());
+
+                updatedUser = userService.saveUser(updatedUser, flag);
+                session.setAttribute("username", updatedUser.getUsername());
+
+                HashMap<String, String> returnUpdatedUser = new HashMap<>();
+                returnUpdatedUser.put("username", updatedUser.getUsername());
+                returnUpdatedUser.put("userId", String.valueOf(updatedUser.getId()));
 
                return returnUpdatedUser;
             } else {
