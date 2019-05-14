@@ -107,15 +107,13 @@ public class UserController {
                     flag = !flag;
                 }
 
-//                updatedUser.setUsername(user.getUsername());
-//                updatedUser.setPassword(user.getPassword());
-
                 updatedUser = userService.saveUser(updatedUser, flag);
                 session.setAttribute("username", updatedUser.getUsername());
 
                 HashMap<String, String> returnUpdatedUser = new HashMap<>();
                 returnUpdatedUser.put("username", updatedUser.getUsername());
                 returnUpdatedUser.put("userId", String.valueOf(updatedUser.getId()));
+                returnUpdatedUser.put("edited", String.valueOf(true));
 
                return returnUpdatedUser;
             } else {
