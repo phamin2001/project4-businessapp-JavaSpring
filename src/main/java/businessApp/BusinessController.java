@@ -47,15 +47,31 @@ public class BusinessController {
     }
 
     @PostMapping("/users/{userId}/businesses")
-    public Object[] createBusiness(@RequestBody Business business, @PathVariable Long userId, HttpSession session) throws Exception {
+    public HashMap<String, String> createBusiness(@RequestBody Business business, @PathVariable Long userId, HttpSession session) throws Exception {
+        HashMap<String, String> newBusiness = new HashMap<>();
 
         if (session.getAttribute("userId") == userId) {
             String currentUserUsername = session.getAttribute("username").toString();
             User currentUser = userRepository.findByUsername(currentUserUsername);
 
+            //TODO: check if user has this business already
+            Set<Business> allUserBusinesses = currentUser.getBusinesses();
+            for (Business userBusiness : allUserBusinesses) {
+                if( (userBusiness.getName().equals(business.getName())) &&
+                        (userBusiness.getLocation().equals(business.getLocation()))) {
+                    throw new Exception("User already has this business.");
+                }
+            }
+
+
             business.setUser(currentUser);
             Business createdBusiness = businessRepository.save(business);
-            return new Object[] {createdBusiness.getId(), createdBusiness.getName(), createdBusiness.getLocation()};
+
+            newBusiness.put("businessId", String.valueOf(createdBusiness.getId()));
+            newBusiness.put("name", createdBusiness.getName());
+            newBusiness.put("location", createdBusiness.getLocation());
+
+            return newBusiness;
         } else {
             throw new Exception("You didn't logged in!!");
         }
