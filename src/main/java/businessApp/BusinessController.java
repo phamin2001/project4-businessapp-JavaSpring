@@ -54,7 +54,6 @@ public class BusinessController {
             String currentUserUsername = session.getAttribute("username").toString();
             User currentUser = userRepository.findByUsername(currentUserUsername);
 
-            //TODO: check if user has this business already
             Set<Business> allUserBusinesses = currentUser.getBusinesses();
             for (Business userBusiness : allUserBusinesses) {
                 if( (userBusiness.getName().equals(business.getName())) &&
@@ -62,7 +61,6 @@ public class BusinessController {
                     throw new Exception("User already has this business.");
                 }
             }
-
 
             business.setUser(currentUser);
             Business createdBusiness = businessRepository.save(business);

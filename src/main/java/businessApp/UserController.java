@@ -26,22 +26,30 @@ public class UserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/users/login")
-    public HashMap<String, Object> login(@RequestBody User login, HttpSession session) throws IOException {
+    public HashMap<String, String> login(@RequestBody User login, HttpSession session) throws IOException {
+        System.out.println(login.getUsername() + " :username");
+        System.out.println(login.getPassword() + " :password");
+        System.out.println(login + " : login");
+
         bCryptPasswordEncoder = new BCryptPasswordEncoder();
         User user = userRepository.findByUsername(login.getUsername());
+        System.out.println(user.getUsername() + " : user username");
+        System.out.println(user.getPassword() + " : user password");
+
         if (user == null) {
-            throw new IOException("Invalid Credentials");
+            throw new IOException("Invalid Credentials!!");
         }
         boolean valid = bCryptPasswordEncoder.matches(login.getPassword(), user.getPassword());
+        System.out.println(valid + " : valid");
         if (valid) {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userId", user.getId());
             session.setAttribute("logged", true);
 
-            HashMap<String, Object> userInfo = new HashMap<>();
-            userInfo.put("username", session.getAttribute("username"));
-            userInfo.put("userId",   session.getAttribute("userId"));
-            userInfo.put("logged",   session.getAttribute("logged"));
+            HashMap<String, String> userInfo = new HashMap<>();
+            userInfo.put("username", String.valueOf(session.getAttribute("username")));
+            userInfo.put("userId", String.valueOf(session.getAttribute("userId")));
+            userInfo.put("logged", String.valueOf(session.getAttribute("logged")));
 
             return userInfo;
 
@@ -125,7 +133,7 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{userId}")
-    public String deleteUser(@PathVariable Long userId, HttpSession session) throws Exception {
+    public HashMap<String, String> deleteUser(@PathVariable Long userId, HttpSession session) throws Exception {
 
         Optional<User> foundUser = userRepository.findById(userId);
         if (foundUser.isPresent()) {
@@ -139,7 +147,12 @@ public class UserController {
                 }
 
                 userRepository.deleteById(userId);
-                return "Successfully Delete User By Id Of: " + userId;
+
+                HashMap<String, String> result = new HashMap<>();
+                result.put("status", "OK");
+                result.put("message", "Successfully Delete User By Id Of: " + userId);
+
+                return result;
             } else {
                 throw new Exception("You didn't logged in!!!!");
             }
