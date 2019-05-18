@@ -27,20 +27,16 @@ public class UserController {
 
     @PostMapping("/users/login")
     public HashMap<String, String> login(@RequestBody User login, HttpSession session) throws IOException {
-        System.out.println(login.getUsername() + " :username");
-        System.out.println(login.getPassword() + " :password");
-        System.out.println(login + " : login");
 
         bCryptPasswordEncoder = new BCryptPasswordEncoder();
         User user = userRepository.findByUsername(login.getUsername());
-        System.out.println(user.getUsername() + " : user username");
-        System.out.println(user.getPassword() + " : user password");
 
         if (user == null) {
             throw new IOException("Invalid Credentials!!");
         }
+
         boolean valid = bCryptPasswordEncoder.matches(login.getPassword(), user.getPassword());
-        System.out.println(valid + " : valid");
+
         if (valid) {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("userId", user.getId());
@@ -79,7 +75,7 @@ public class UserController {
 
         // check if user exist
         if (userRepository.findByUsername(user.getUsername()) == null) {
-            User createdUser = userService.saveUser(user, true);
+            User createdUser = userService.saveUser(user);
             session.setAttribute("username", createdUser.getUsername());
             session.setAttribute("userId", createdUser.getId());
             session.setAttribute("logged", true);
@@ -99,7 +95,7 @@ public class UserController {
     @PutMapping("/users/{userId}")
     public HashMap<String, String> updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
         Optional<User> foundUser = userRepository.findById(userId);
-        boolean flag = false;
+//        boolean flag = false;
 
         if(foundUser.isPresent()) {
             User updatedUser = foundUser.get();
@@ -112,10 +108,10 @@ public class UserController {
 
                 if (!user.getPassword().isEmpty()) {
                     updatedUser.setPassword(user.getPassword());
-                    flag = !flag;
+//                    flag = !flag;
                 }
 
-                updatedUser = userService.saveUser(updatedUser, flag);
+                updatedUser = userService.saveUser(updatedUser);
                 session.setAttribute("username", updatedUser.getUsername());
 
                 HashMap<String, String> returnUpdatedUser = new HashMap<>();
@@ -161,10 +157,8 @@ public class UserController {
         }
     }
 
-
-
     @PostMapping("/auth/logout")
-    public HashMap<String, String> logoutDo( HttpServletRequest request){
+    public HashMap<String, String> logoutUser( HttpServletRequest request){
         HttpSession session= request.getSession(false);
         SecurityContextHolder.clearContext();
         session= request.getSession(false);
@@ -176,12 +170,4 @@ public class UserController {
         result.put("data", "logout successful");
         return result;
     }
-
-
-
-
-
-
-
-
 }
