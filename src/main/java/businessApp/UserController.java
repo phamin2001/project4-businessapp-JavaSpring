@@ -75,7 +75,7 @@ public class UserController {
 
         // check if user exist
         if (userRepository.findByUsername(user.getUsername()) == null) {
-            User createdUser = userService.saveUser(user);
+            User createdUser = userService.saveUser(user, true);
             session.setAttribute("username", createdUser.getUsername());
             session.setAttribute("userId", createdUser.getId());
             session.setAttribute("logged", true);
@@ -95,7 +95,7 @@ public class UserController {
     @PutMapping("/users/{userId}")
     public HashMap<String, String> updateUser(@RequestBody User user, @PathVariable Long userId, HttpSession session) throws Exception {
         Optional<User> foundUser = userRepository.findById(userId);
-//        boolean flag = false;
+        boolean flag = false;
 
         if(foundUser.isPresent()) {
             User updatedUser = foundUser.get();
@@ -108,10 +108,10 @@ public class UserController {
 
                 if (!user.getPassword().isEmpty()) {
                     updatedUser.setPassword(user.getPassword());
-//                    flag = !flag;
+                    flag = !flag;
                 }
 
-                updatedUser = userService.saveUser(updatedUser);
+                updatedUser = userService.saveUser(updatedUser, flag);
                 session.setAttribute("username", updatedUser.getUsername());
 
                 HashMap<String, String> returnUpdatedUser = new HashMap<>();
