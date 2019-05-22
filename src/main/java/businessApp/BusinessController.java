@@ -31,7 +31,7 @@ public class BusinessController {
             for (Business business : foundAllUserBusinesses) {
                 HashMap<String, String> businessMap = new HashMap<>();
 
-                if (business.getUser().getId() == userId) {
+                if (business.getUsermodel().getId() == userId) {
                     businessMap.put("name", business.getName());
                     businessMap.put("location", business.getLocation());
                     businessMap.put("id", String.valueOf(business.getId()));
@@ -52,17 +52,17 @@ public class BusinessController {
 
         if (session.getAttribute("userId") == userId) {
             String currentUserUsername = session.getAttribute("username").toString();
-            User currentUser = userRepository.findByUsername(currentUserUsername);
+            Usermodel currentUsermodel = userRepository.findByUsername(currentUserUsername);
 
-            Set<Business> allUserBusinesses = currentUser.getBusinesses();
+            Set<Business> allUserBusinesses = currentUsermodel.getBusinesses();
             for (Business userBusiness : allUserBusinesses) {
                 if( (userBusiness.getName().equals(business.getName())) &&
                         (userBusiness.getLocation().equals(business.getLocation()))) {
-                    throw new Exception("User already has this business.");
+                    throw new Exception("Usermodel already has this business.");
                 }
             }
 
-            business.setUser(currentUser);
+            business.setUsermodel(currentUsermodel);
             Business createdBusiness = businessRepository.save(business);
 
             newBusiness.put("businessId", String.valueOf(createdBusiness.getId()));

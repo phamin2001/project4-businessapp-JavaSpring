@@ -13,7 +13,7 @@ public class Business {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Usermodel usermodel;
 
     public Long getId() {
         return id;
@@ -39,11 +39,11 @@ public class Business {
         this.location = location;
     }
 
-    public User getUser() {
-        return user;
+    public Usermodel getUsermodel() {
+        return usermodel;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsermodel(Usermodel usermodel) {
+        this.usermodel = usermodel;
     }
 }

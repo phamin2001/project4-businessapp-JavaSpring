@@ -17,16 +17,16 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public User findUserByUsername(String username) {
+    public Usermodel findUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    public User saveUser(User user, boolean pass) {
+    public Usermodel saveUser(Usermodel usermodel, boolean pass) {
         if (pass) {
-            user.setPassword(bCryptPasswordEncoder.encode((user.getPassword())));
+            usermodel.setPassword(bCryptPasswordEncoder.encode((usermodel.getPassword())));
         }
 
-        userRepository.save(user);
-        return user;
+        userRepository.save(usermodel);
+        return usermodel;
     }
 }

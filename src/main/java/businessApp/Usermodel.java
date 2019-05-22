@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class User {
+public class Usermodel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

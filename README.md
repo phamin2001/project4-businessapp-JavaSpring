@@ -2,5 +2,5 @@
 
 ## User Story
 
-1- Provideing RESTful routes for user favorite businesses using Java/Spring and MySql.
-2- Provideing RESTful routes for user profiles using java/spring and MySql.
+1- Provideing RESTful routes for usermodel favorite businesses using Java/Spring and MySql.
+2- Provideing RESTful routes for usermodel profiles using java/spring and MySql.
