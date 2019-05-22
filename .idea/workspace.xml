@@ -1,57 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db5504b9-cb99-44d1-9f8c-2b42e842c36a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/publish-built-version" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/publish-built-version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/travis-gh-pages" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/travis-gh-pages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt-pbkdf/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bcrypt-pbkdf/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/dashdash/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/dashdash/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/HTTP/servers/how-to-create-a-HTTP-server/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/HTTP/servers/how-to-create-a-HTTP-server/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/HTTP/servers/how-to-serve-static-files/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/HTTP/servers/how-to-serve-static-files/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/command-line/how-to-prompt-for-command-line-input/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/command-line/how-to-prompt-for-command-line-input/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/cryptography/how-to-use-crypto-module/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/cryptography/how-to-use-crypto-module/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/errors/what-are-the-error-conventions/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/errors/what-are-the-error-conventions/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/file-system/how-to-search-files-and-directories-in-nodejs/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/file-system/how-to-search-files-and-directories-in-nodejs/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/articles/getting-started/the-process-module/article.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/articles/getting-started/the-process-module/article.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/HTTP/servers/how-to-create-a-HTTP-server/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/HTTP/servers/how-to-create-a-HTTP-server/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/HTTP/servers/how-to-serve-static-files/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/HTTP/servers/how-to-serve-static-files/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/command-line/how-to-prompt-for-command-line-input/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/command-line/how-to-prompt-for-command-line-input/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/cryptography/how-to-use-crypto-module/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/cryptography/how-to-use-crypto-module/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/errors/what-are-the-error-conventions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/errors/what-are-the-error-conventions/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/file-system/how-to-search-files-and-directories-in-nodejs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/file-system/how-to-search-files-and-directories-in-nodejs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/public/articles/getting-started/the-process-module/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/public/articles/getting-started/the-process-module/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/classref.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/classref.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/readme.eng.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/readme.eng.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/docs/vendor/highlight/lib/vendor/highlight.js/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/form-data/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/form-data/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-server/vendor/eyes/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-server/vendor/eyes/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/json-schema/draft-zyp-json-schema-03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/json-schema/draft-zyp-json-schema-03.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/json-schema/draft-zyp-json-schema-04.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/json-schema/draft-zyp-json-schema-04.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jsprim/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jsprim/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/qs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/qs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/safe-buffer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/safe-buffer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/safer-buffer/Porting-Buffer.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/safer-buffer/Porting-Buffer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/safer-buffer/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/safer-buffer/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sshpk/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sshpk/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sshpk/man/man1/sshpk-conv.1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sshpk/man/man1/sshpk-conv.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tough-cookie/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tough-cookie/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uri-js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uri-js/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uri-js/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uri-js/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/verror/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/verror/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/verror/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/verror/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/weld/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/weld/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/BusinessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/Usermodel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/businessApp/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/businessApp/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="db5504b9-cb99-44d1-9f8c-2b42e842c36a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,7 +17,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,6 +39,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>saveUser</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,12 +125,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BusinessApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project4-businessapp-JavaSpring" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,8 +240,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="23" width="1835" height="967" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16229783" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16229783" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -300,7 +256,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.54280156" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.5422535" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3298791" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -428,13 +384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/businessApp/BusinessRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -460,6 +409,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -519,7 +475,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.35519677" />
                 <option value="0.6" />
               </list>
             </option>
