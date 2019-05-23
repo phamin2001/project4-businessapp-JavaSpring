@@ -31,6 +31,11 @@ public class UserController {
         return HttpStatus.OK;
     }
 
+    @GetMapping("/")
+    public String hello() {
+        return "hello out there";
+    }
+
     @PostMapping("/users/login")
     public HashMap<String, String> login(@RequestBody Usermodel login, HttpSession session) throws IOException {
 
