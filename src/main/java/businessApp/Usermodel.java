@@ -16,7 +16,7 @@ public class Usermodel {
     private String username;
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
     @JsonIgnore
     private Set<Business> businesses;
 
