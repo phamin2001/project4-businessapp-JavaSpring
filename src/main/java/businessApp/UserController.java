@@ -1,6 +1,7 @@
 package businessApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class UserController {
     private UserService userService;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @RequestMapping(value="*", method=RequestMethod.OPTIONS)
+    public HttpStatus optionsRoute(){
+        return HttpStatus.OK;
+    }
 
     @PostMapping("/users/login")
     public HashMap<String, String> login(@RequestBody Usermodel login, HttpSession session) throws IOException {
