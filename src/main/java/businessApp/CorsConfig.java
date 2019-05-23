@@ -14,7 +14,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:3000")
+                     "http://understood-badge.surge.sh/" )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
                 .allowCredentials(true)
                 .allowedHeaders("*");
@@ -24,3 +24,4 @@ public class CorsConfig implements WebMvcConfigurer {
 
 
 
+//  "http://localhost:3000"
