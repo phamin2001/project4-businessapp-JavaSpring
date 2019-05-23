@@ -1,7 +1,5 @@
 package businessApp;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Set;
@@ -16,7 +14,7 @@ public class Usermodel {
     private String username;
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usermodel")
     @JsonIgnore
     private Set<Business> businesses;
 
