@@ -53,8 +53,9 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4-1206-jdbc42</version>
-            <scope>runtime</scope>
+<!--            <version>9.4-1206-jdbc42</version>-->
+<!--            <scope>runtime</scope>-->
+            <version>42.2.1</version>
         </dependency>
 
 
