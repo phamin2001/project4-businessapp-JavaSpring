@@ -9,7 +9,7 @@ public class Usermodel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Double id;
 
     private String username;
     private String password;
@@ -18,11 +18,11 @@ public class Usermodel {
     @JsonIgnore
     private Set<Business> businesses;
 
-    public Long getId() {
+    public Double getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Double id) {
         this.id = id;
     }
 
