@@ -46,11 +46,14 @@ public class UserController {
             throw new IOException("Invalid Credentials!!");
         }
 
+        System.out.println(bCryptPasswordEncoder.encode(login.getPassword()) + " : login password");
+        System.out.println(usermodel.getPassword() + " : db user password");
+
         boolean valid = bCryptPasswordEncoder.matches(login.getPassword(), usermodel.getPassword());
 
         if (valid) {
             session.setAttribute("username", usermodel.getUsername());
-            session.setAttribute("userId", usermodel.getId());
+            session.setAttribute("userId", usermodel.getUsermodel_id());
             session.setAttribute("logged", true);
 
             HashMap<String, String> userInfo = new HashMap<>();
@@ -70,8 +73,8 @@ public class UserController {
         Optional<Usermodel> foundUser = userRepository.findById(userId);
         if(foundUser.isPresent()) {
             Usermodel result = foundUser.get();
-            if(result.getId() == session.getAttribute("userId")) {
-                return new Object[] {result.getId(), result.getUsername()};
+            if(result.getUsermodel_id() == session.getAttribute("userId")) {
+                return new Object[] {result.getUsermodel_id(), result.getUsername()};
             } else {
                 throw new Exception("You didn't login!!");
             }
@@ -87,8 +90,9 @@ public class UserController {
         // check if usermodel exist
         if (userRepository.findByUsername(usermodel.getUsername()) == null) {
             Usermodel createdUsermodel = userService.saveUser(usermodel, true);
+
             session.setAttribute("username", createdUsermodel.getUsername());
-            session.setAttribute("userId", createdUsermodel.getId());
+            session.setAttribute("userId", createdUsermodel.getUsermodel_id());
             session.setAttribute("logged", true);
 
             newUser.put("username", session.getAttribute("username"));
@@ -111,7 +115,7 @@ public class UserController {
         if(foundUser.isPresent()) {
             Usermodel updatedUsermodel = foundUser.get();
 
-            if(updatedUsermodel.getId() == session.getAttribute("userId")) {
+            if(updatedUsermodel.getUsermodel_id() == session.getAttribute("userId")) {
 
                 if (!usermodel.getUsername().isEmpty()) {
                     updatedUsermodel.setUsername(usermodel.getUsername());
@@ -127,7 +131,7 @@ public class UserController {
 
                 HashMap<String, String> returnUpdatedUser = new HashMap<>();
                 returnUpdatedUser.put("username", updatedUsermodel.getUsername());
-                returnUpdatedUser.put("userId", String.valueOf(updatedUsermodel.getId()));
+                returnUpdatedUser.put("userId", String.valueOf(updatedUsermodel.getUsermodel_id()));
                 returnUpdatedUser.put("edited", String.valueOf(true));
 
                return returnUpdatedUser;
@@ -145,11 +149,11 @@ public class UserController {
         Optional<Usermodel> foundUser = userRepository.findById(userId);
         if (foundUser.isPresent()) {
 
-            if (foundUser.get().getId() == session.getAttribute("userId")) {
+            if (foundUser.get().getUsermodel_id() == session.getAttribute("userId")) {
                 Iterable<Business> foundAllUserBusinesses = businessRepository.findAll();
                 for (Business business : foundAllUserBusinesses) {
-                    if (business.getUsermodel().getId() == userId) {
-                        businessRepository.deleteById(business.getId());
+                    if (business.getUsermodel().getUsermodel_id() == userId) {
+                        businessRepository.deleteById(business.getBusiness_id());
                     }
                 }
 

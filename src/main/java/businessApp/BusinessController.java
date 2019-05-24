@@ -31,10 +31,10 @@ public class BusinessController {
             for (Business business : foundAllUserBusinesses) {
                 HashMap<String, String> businessMap = new HashMap<>();
 
-                if (business.getUsermodel().getId() == userId) {
+                if (business.getUsermodel().getUsermodel_id() == userId) {
                     businessMap.put("name", business.getName());
                     businessMap.put("location", business.getLocation());
-                    businessMap.put("id", String.valueOf(business.getId()));
+                    businessMap.put("id", String.valueOf(business.getBusiness_id()));
 
                     businessesList.add(i, businessMap);
                     i++;
@@ -65,7 +65,7 @@ public class BusinessController {
             business.setUsermodel(currentUsermodel);
             Business createdBusiness = businessRepository.save(business);
 
-            newBusiness.put("businessId", String.valueOf(createdBusiness.getId()));
+            newBusiness.put("businessId", String.valueOf(createdBusiness.getBusiness_id()));
             newBusiness.put("name", createdBusiness.getName());
             newBusiness.put("location", createdBusiness.getLocation());
 
@@ -79,7 +79,7 @@ public class BusinessController {
     public Object[] showOne(@PathVariable Long userId, @PathVariable Long businessId, HttpSession session) throws Exception {
         if (session.getAttribute("userId") == userId) {
             Business findOne = businessRepository.findById(businessId).get();
-            return new Object[] {findOne.getId(), findOne.getName(), findOne.getLocation()};
+            return new Object[] {findOne.getBusiness_id(), findOne.getName(), findOne.getLocation()};
         } else {
             throw new Exception("You didn't logged in!!");
         }
@@ -97,7 +97,7 @@ public class BusinessController {
                 updatedBusiness.setLocation(business.getLocation());
                 businessRepository.save(updatedBusiness);
 
-                returnUpdatedBusiness.put("id", String.valueOf(updatedBusiness.getId()));
+                returnUpdatedBusiness.put("id", String.valueOf(updatedBusiness.getBusiness_id()));
                 returnUpdatedBusiness.put("name", updatedBusiness.getName());
                 returnUpdatedBusiness.put("location", updatedBusiness.getLocation());
 

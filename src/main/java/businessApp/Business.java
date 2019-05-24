@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Business {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long business_id;
 
     private String name;
     private String location;
@@ -15,12 +15,12 @@ public class Business {
     @JoinColumn(name = "usermodel_id")
     private Usermodel usermodel;
 
-    public Long getId() {
-        return id;
+    public Long getBusiness_id() {
+        return business_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBusiness_id(Long business_id) {
+        this.business_id = business_id;
     }
 
     public String getName() {
