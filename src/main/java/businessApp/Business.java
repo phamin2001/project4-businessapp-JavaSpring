@@ -12,7 +12,7 @@ public class Business {
     private String location;
 
     @ManyToOne
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "usermodel_id")
     private Usermodel usermodel;
 
     public Long getId() {
